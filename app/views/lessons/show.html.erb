@@ -1,6 +1,7 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1><%= @lesson.name %></h1><br />
   <p><i><%= @lesson.description %></i></p><br />
+  <p>Max number of students: <i><%= @lesson.max_students %></i></p><br />
   <p><i class="glyphicon glyphicon-time"></i>&nbsp;<%= @lesson.date %> at <%= @lesson.time %></p><br />
   <p><i class="glyphicon glyphicon-map-marker"></i>  <%= @lesson.location %></p>
   <p>&nbsp; &nbsp; <%= @lesson.address %></p><br />
@@ -19,9 +20,13 @@
 <div class="col-xs-10 col-xs-offset-1">
   <p>Invite Friends! <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Flosantiville-paddle.herokuapp.com%2F&layout=button&mobile_iframe=true&width=61&height=20&appId"
     width="61" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></p>
-  <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
-    Sign up!
-  </button>
+    <% if @lesson.lesson_full? %>
+      <i class="btn btn-primary btn-lg pull-right"> Class is full </i>
+    <% else %>
+      <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+        Sign up!
+      </button>
+    <% end %>
 </div>
 
 <!-- Modal -->
