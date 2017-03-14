@@ -10,7 +10,7 @@ class Lesson < ActiveRecord::Base
   validates :address, presence: true, length: { maximum: 140, minimum: 3 }
 
   def lesson_full?
-    if max_students == comments.count
+    if max_students <= comments.count
       return true
     else
       return false
