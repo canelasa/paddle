@@ -6,7 +6,6 @@
       <th>Title</th>
       <th>Description</th>
       <th>Start time</th>
-      <th>End time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +15,8 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.description %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.show_date %></td>
+
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,4 +37,9 @@
       <%= event.title %>
     </div>
   <% end %>
+<% end %>
+
+<h1>Upcoming Events</h1>
+<% Event.events_in_future.each do |event| %>
+<p><%= event.title %></p>
 <% end %>

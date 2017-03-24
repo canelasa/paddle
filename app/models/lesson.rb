@@ -17,7 +17,4 @@ class Lesson < ActiveRecord::Base
     end
   end
 
-  def show_date
-
-  end
 end
