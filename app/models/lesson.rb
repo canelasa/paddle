@@ -16,4 +16,8 @@ class Lesson < ActiveRecord::Base
       return false
     end
   end
+
+  def show_date
+
+  end
 end
